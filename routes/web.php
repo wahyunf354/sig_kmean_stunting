@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\VariablePenilaianController;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,11 @@ Route::middleware(Authenticate::class)->group(function () {
     Route::post('/data_cluster', [ClusterController::class, 'store'])->name('admin.data_cluster.store');
     Route::put('/data_cluster', [ClusterController::class, 'update'])->name('admin.data_cluster.update');
     Route::delete('/data_cluster/{id}', [ClusterController::class, 'destroy'])->name('admin.data_cluster.destroy');
+
+    Route::get('/variable_penilaian', [VariablePenilaianController::class, 'index'])->name('admin.variable_penilaian');
+    Route::post('/variable_penilaian', [VariablePenilaianController::class, 'store'])->name('admin.variable_penilaian.store');
+    Route::delete('/variable_penilaian/{id}', [VariablePenilaianController::class, 'destroy'])->name('admin.variable_penilaian.destroy');
+    Route::get('/variable_penilaian/create', [VariablePenilaianController::class, 'create'])->name('admin.variable_penilaian.create');
+    Route::get('/variable_penilaian/edit/{id}', [VariablePenilaianController::class, 'edit'])->name('admin.variable_penilaian.edit');
+    Route::put('/variable_penilaian/update', [VariablePenilaianController::class, 'update'])->name('admin.variable_penilaian.update');
 });

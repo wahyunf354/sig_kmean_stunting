@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cluster;
-use App\Http\Requests\StoreClusterRequest;
-use App\Http\Requests\UpdateClusterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

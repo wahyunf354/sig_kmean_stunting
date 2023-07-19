@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\StuntingController;
 use App\Http\Controllers\VariablePenilaianController;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
@@ -39,4 +40,11 @@ Route::middleware(Authenticate::class)->group(function () {
     Route::get('/variable_penilaian/create', [VariablePenilaianController::class, 'create'])->name('admin.variable_penilaian.create');
     Route::get('/variable_penilaian/edit/{id}', [VariablePenilaianController::class, 'edit'])->name('admin.variable_penilaian.edit');
     Route::put('/variable_penilaian/update', [VariablePenilaianController::class, 'update'])->name('admin.variable_penilaian.update');
+
+    Route::get('/stunting', [StuntingController::class, 'index'])->name('admin.stunting');
+    Route::get('/stunting/create', [StuntingController::class, 'create'])->name('admin.stunting.create');
+    Route::get('/stunting/edit/{id}', [StuntingController::class, 'edit'])->name('admin.stunting.edit');
+    Route::post('/stunting', [StuntingController::class, 'store'])->name('admin.stunting.store');
+    Route::put('/stunting', [StuntingController::class, 'update'])->name('admin.stunting.update');
+    Route::delete('/stunting/{id}', [StuntingController::class, 'destroy'])->name('admin.stunting.destroy');
 });

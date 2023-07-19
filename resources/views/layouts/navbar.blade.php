@@ -10,7 +10,7 @@
         <a class="nav-link" href="{{ route('admin.dashboard') }}">Home</a>
         <a class="nav-link" href="{{ route('admin.data_cluster') }}">Data Cluster</a>
         <a class="nav-link" href="{{ route('admin.variable_penilaian') }}">Variabel Penilaian</a>
-        <a class="nav-link" href="#">Manajemen Data Stunting</a>
+        <a class="nav-link" href="{{ route('admin.stunting') }}">Manajemen Data Stunting</a>
         <a class="nav-link" href="#">Penilaian K-Means</a>
         <a class="nav-link" href="#">Laporan Hasil</a>
       </div>

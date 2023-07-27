@@ -32,7 +32,8 @@ class ClusterController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string'
+            'title' => 'required|string',
+            'order' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -41,6 +42,7 @@ class ClusterController extends Controller
 
         $cluster = new Cluster();
         $cluster->title = $request->title;
+        $cluster->order = $request->order;
         $cluster->save();
 
         return redirect()->route("admin.data_cluster")->with('success', 'Berhasil menambahkan data');
@@ -71,7 +73,8 @@ class ClusterController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'id' => 'required',
-            'title' => 'required|string'
+            'title' => 'required|string',
+            'order' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -80,6 +83,7 @@ class ClusterController extends Controller
 
         $cluster = Cluster::find($request->id);
         $cluster->title = $request->title;
+        $cluster->order = $request->order;
         $cluster->save();
 
         return redirect()->route("admin.data_cluster")->with('success', 'Berhasil mengubah data');

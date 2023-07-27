@@ -4,3 +4,5 @@
 @yield('content')
 
 @include('layouts.js')
+
+@yield('script')

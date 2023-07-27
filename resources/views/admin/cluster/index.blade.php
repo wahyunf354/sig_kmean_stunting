@@ -26,6 +26,7 @@
                       <tr>
                         <th scope="col">No</th>
                         <th scope="col">Nama</th>
+                        <th scope="col">Order</th>
                         <th scope="col">Aksi</th>
                       </tr>
                     </thead>
@@ -34,6 +35,7 @@
                       <tr>
                         <th scope="row">{{$key+1}}</th>
                         <td>{{$row->title}}</td>
+                        <td>{{$row->order}}</td>
                         <td>
                           <form method="POST" action="{{route('admin.data_cluster.destroy', $row->id)}}" >
                             @method('delete')

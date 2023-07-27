@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Kmeans extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['stunting_id', 'cluster_id'];
 }

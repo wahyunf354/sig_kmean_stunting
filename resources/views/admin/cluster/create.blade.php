@@ -24,6 +24,13 @@
                             {{$errors->first("title")}}
                           </div>
                         </div>
+                        <div class="mb-3">
+                          <label for="title" class="form-label">Order</label>
+                          <input type="number" min="0" value="{{old('order')}}" class="form-control @error('order') is-invalid @enderror" name="order" id="order" placeholder="Masukkan Order"  >
+                          <div class="invalid-feedback">
+                            {{$errors->first("order")}}
+                          </div>
+                        </div>
                         <button class="btn btn-sm btn-outline-primary" type="submit">Submit</button>
                       </form>
                     </div>

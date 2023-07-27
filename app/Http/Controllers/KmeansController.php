@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cluster;
+use App\Models\Kmeans;
 use App\Models\Stunting;
 use App\Models\VariablePenilaian;
 use Illuminate\Http\Request;
@@ -162,7 +163,7 @@ class KmeansController extends Controller
 
     public function index()
     {
-        $cluster = Cluster::all();
+        $cluster = Cluster::orderBy('order', 'asc')->get();
         $stunting = Stunting::all()->toArray();
         $variable = VariablePenilaian::all()->toArray();
         $variables = [];
@@ -220,14 +221,9 @@ class KmeansController extends Controller
             return  $a["avg"] - $b["avg"];
         });
 
+        $clusterArr = $cluster->toArray();
         for ($m = 0; $m < count($tmpSUM); $m++) {
-            if ($m == 0) {
-                $tmpSUM[$m]['label'] = "Rendah";
-            } else if ($m == 1) {
-                $tmpSUM[$m]['label'] = "Sedang";
-            } else {
-                $tmpSUM[$m]['label'] = "Tinggi";
-            }
+            $tmpSUM[$m]['label'] = $clusterArr[$m];
         }
 
         for ($j = 0; $j < count($stunting); $j++) {
@@ -242,7 +238,11 @@ class KmeansController extends Controller
                     $stunting[$j]['cluster'] = $clusterElement;
                 }
             }
+            $tmpCluster = Kmeans::firstOrCreate(['stunting_id' => $stunting[$j]['id']]);
+            $tmpCluster->cluster_id = $stunting[$j]['label']['id'];
+            $tmpCluster->save();
         }
+
 
 
         return view('admin.kmeans.index', compact('stunting'));

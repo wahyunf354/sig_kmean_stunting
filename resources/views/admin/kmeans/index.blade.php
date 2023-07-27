@@ -38,7 +38,7 @@
                         <td scope="col">{{ $row['name'] }}</td>
                         <td scope="col">{{ $row['jumlah_laki_laki'] }}</td>
                         <td scope="col">{{ $row['jumlah_prempuan'] }}</td>
-                        <td scope="col">{{ $row['label'] }}</td>
+                        <td scope="col">{{ $row['label']['title'] }}</td>
                       </tr>
                       @endforeach
                     </tbody>

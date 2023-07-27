@@ -51,3 +51,4 @@ Route::middleware(Authenticate::class)->group(function () {
 
     Route::get('/kmeans', [KmeansController::class, 'index'])->name('admin.kmeans');
 });
+Route::get('/getDataStunting', [DashboardController::class, 'getDataStunting']);

@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('kmeans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('stunting_id');
-            $table->unsignedBigInteger('cluster_id');
+            $table->unsignedBigInteger('cluster_id')->nullable();
 
+            $table->foreign('stunting_id')->references('id')->on('stuntings');
+            $table->foreign('cluster_id')->references('id')->on('clusters');
             $table->timestamps();
         });
     }

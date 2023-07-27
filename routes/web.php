@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KmeansController;
 use App\Http\Controllers\StuntingController;
 use App\Http\Controllers\VariablePenilaianController;
 use App\Http\Middleware\Authenticate;
@@ -47,4 +48,6 @@ Route::middleware(Authenticate::class)->group(function () {
     Route::post('/stunting', [StuntingController::class, 'store'])->name('admin.stunting.store');
     Route::put('/stunting', [StuntingController::class, 'update'])->name('admin.stunting.update');
     Route::delete('/stunting/{id}', [StuntingController::class, 'destroy'])->name('admin.stunting.destroy');
+
+    Route::get('/kmeans', [KmeansController::class, 'index'])->name('admin.kmeans');
 });

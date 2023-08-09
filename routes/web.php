@@ -50,5 +50,6 @@ Route::middleware(Authenticate::class)->group(function () {
     Route::delete('/stunting/{id}', [StuntingController::class, 'destroy'])->name('admin.stunting.destroy');
 
     Route::get('/kmeans', [KmeansController::class, 'index'])->name('admin.kmeans');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 });
 Route::get('/getDataStunting', [DashboardController::class, 'getDataStunting']);

@@ -10,6 +10,7 @@ class DashboardController extends Controller
     public function getDataStunting()
     {
         $stunting = Stunting::with('cluster')->get()->toArray();
+
         return response()->json($stunting);
     }
 

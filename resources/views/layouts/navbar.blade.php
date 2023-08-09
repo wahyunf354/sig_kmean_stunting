@@ -12,6 +12,9 @@
         <a class="nav-link" href="{{ route('admin.variable_penilaian') }}">Variabel Penilaian</a>
         <a class="nav-link" href="{{ route('admin.stunting') }}">Manajemen Data Stunting</a>
         <a class="nav-link" href="{{ route('admin.kmeans') }}">Penilaian K-Means</a>
+        @if(Auth::check())
+          <a class="nav-link" href="{{ route('admin.logout') }}">Log out</a>
+        @endif
       </div>
     </div>
     @endif
